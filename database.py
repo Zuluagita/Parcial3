@@ -7,14 +7,9 @@ from pathlib import Path
 env_path = Path(__file__).parent / ".env"
 load_dotenv(dotenv_path=env_path)
 
-USER = os.getenv("USER")
-PASSWORD = os.getenv("PASSWORD")
-HOST = os.getenv("HOST")
-PORT = int(os.getenv("PORT"))
-DBNAME = os.getenv("DBNAME")
 
 
-DATABASE_URL = f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
+DATABASE_URL = f"postgresql://u5hzryszvsfwihhna1qs:3kJm20mPAfTcEbsSHCliSVXsQOiB8r@bbexxwo0eqot2cwljxae-postgresql.services.clever-cloud.com:50013/bbexxwo0eqot2cwljxae"
 
 engine = create_engine(DATABASE_URL, echo=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
